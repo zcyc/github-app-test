@@ -48,5 +48,6 @@ yarn-error.log*
 *.db
 *.sql
 *.sql-journal
+dddddddddd
 .1024*
 !.1024
