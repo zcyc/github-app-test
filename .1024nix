@@ -1,0 +1,28 @@
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.mkShell {
+    shellHook = ''
+        alias ll="ls -l"
+        export PS1="\[\e[0m\]\w\[\e[0m\]#\[\e[0m\] "
+        export LANG=en_US.UTF-8
+        export PIP_TARGET=$HOME/.cache/pip/site-packages
+        export PYTHONPATH=$PIP_TARGET:$PYTHONPATH
+        export PATH=$PIP_TARGET/bin:$PATH
+    '';
+    packages = [
+        # env
+        pkgs.python311Full
+        pkgs.python311Packages.pip
+        pkgs.python311Packages.pipx
+        pkgs.poetry
+        pkgs.python311Packages.django
+        pkgs.python311Packages.numpy
+        pkgs.python311Packages.pandas
+        pkgs.python311Packages.scipy
+        pkgs.python311Packages.conda
+        # unitTest
+        pkgs.python311Packages.pytest
+        # lsp
+        pkgs.python311Packages.python-lsp-server
+        pkgs.glibcLocales
+    ];
+}
