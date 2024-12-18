@@ -1,2 +1,8 @@
 fileChangeLogs:
   - README.md
+<<<<<<< HEAD
+=======
+  - '.1024'
+  - .1024nix
+  - .gitignore
+>>>>>>> d885a11 (2)
